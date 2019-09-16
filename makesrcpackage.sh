@@ -1,7 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-cd /build
 mkdir sources srcpackages makepkglogs || true
 chown -R builder /home/builder /builds
 

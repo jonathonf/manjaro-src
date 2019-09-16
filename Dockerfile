@@ -17,6 +17,6 @@ RUN sed -i '44cMAKEFLAGS="-j$(($(nproc) + 1))"' /etc/makepkg.conf && \
 ADD makesrcpackage.sh /makesrcpackage.sh
 RUN chmod a+rx /makesrcpackage.sh
 
-VOLUME [ '/build' ]
+VOLUME [ '/builds' ]
 
 CMD [ "/makesrcpackage.sh" ]

@@ -4,8 +4,8 @@ RUN pacman -Syu --noconfirm --noprogressbar --needed git curl wget ca-certificat
     rm -fr /var/cache/pacman/pkg/* && \
     rm -f /var/lib/pacman/sync/*
 
-#RUN /usr/bin/useradd -m builder -u 1000 && \
-#    echo 'builder ALL=(root) NOPASSWD:/usr/bin/pacman' > /etc/sudoers.d/makepkg
+RUN /usr/bin/useradd -m builder -u 1000 && \
+    echo 'builder ALL=(root) NOPASSWD:/usr/bin/pacman' > /etc/sudoers.d/makepkg
 
 RUN sed -i '44cMAKEFLAGS="-j$(($(nproc) + 1))"' /etc/makepkg.conf && \
     sed -i '116cSRCDEST=/build/sources'         /etc/makepkg.conf && \
